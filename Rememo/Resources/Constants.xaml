@@ -1,0 +1,51 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- Default file to log all events to -->
+    <system:String x:Key="LogFile">log.txt</system:String>
+    
+    <!-- Path to VLC executable -->
+    <system:String x:Key="VLCPath">C:\Program Files\VideoLAN\VLC\vlc.exe</system:String>
+    
+    <!-- Default volume for the application -->
+    <system:Int16 x:Key="DefaultVolume">8</system:Int16>
+    
+    <!-- Default musicon number -->
+    <system:Int16 x:Key="DefaultMusicon">1</system:Int16>
+
+    <!-- Musicon paths -->
+    <system:String x:Key="Musicon1">Resources/Musicons/Canon.mp3</system:String>
+    <system:String x:Key="Musicon2">Resources/Musicons/JamesBond.mp3</system:String>
+    <system:String x:Key="Musicon3">Resources/Musicons/JurassicPark.mp3</system:String>
+    <system:String x:Key="Musicon4">Resources/Musicons/Ghostbusters.mp3</system:String>
+    <system:String x:Key="Musicon5">Resources/Musicons/Friends.mp3</system:String>
+
+    <!-- Default abstract reminder number -->
+    <system:Int16 x:Key="DefaultAbstract">1</system:Int16>
+
+    <!-- Slideshow directory -->
+    <system:String x:Key="SlideshowDirectory">Resources/Slideshow/</system:String>
+    
+    <!-- Slideshow interval between pictures, in seconds -->
+    <system:Int16 x:Key="SlideshowInterval">10</system:Int16>
+    
+    <!-- Abstract reminder pulse length (ms) -->
+    <system:Int16 x:Key="PulseLength">2000</system:Int16>
+
+    <!-- Name of the resource for enabled musicon -->
+    <system:String x:Key="EnabledResource">Colour5</system:String>
+    
+    <!-- Name of the resource for disabled musicons -->
+    <system:String x:Key="DisabledResource">Colour6</system:String>
+    
+    <!-- Reminder delivery hours (24hr time) -->
+    <system:Int16 x:Key="MorningTime">20</system:Int16>
+    <system:Int16 x:Key="AfternoonTime">12</system:Int16>
+    <system:Int16 x:Key="EveningTime">19</system:Int16>
+	
+    <system:Int16 x:Key="MorningTimeMins">0</system:Int16>
+    <system:Int16 x:Key="AfternoonTimeMins">0</system:Int16>
+    <system:Int16 x:Key="EveningTimeMins">0</system:Int16>
+</ResourceDictionary>
