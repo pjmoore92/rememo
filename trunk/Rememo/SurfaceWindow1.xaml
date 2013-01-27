@@ -15,7 +15,12 @@
       
         <TabControl Height="815" HorizontalAlignment="Left" Name="tabControl1" VerticalAlignment="Top" Width="1005" Margin="-5,-27,0,0" Grid.ColumnSpan="2">
             <TabItem Header="Home" Name="tabItem1">
-                <Grid>
+                <Grid Background="Teal">
+                    <s:TagVisualizer>
+                        <s:TagVisualizer.Definitions>
+                            <s:ByteTagVisualizationDefinition Value="0xC0" />
+                        </s:TagVisualizer.Definitions>
+                    </s:TagVisualizer>
                    <!-- <s:SurfaceButton Content="Calendar" Height="88" HorizontalAlignment="Left" Name="calendarButton" Width="99" Margin="117,29,0,666" Background="#FFDEAF00" Click="calendarButton_Click"></s:SurfaceButton>-->
                     <s:SurfaceButton Content="Quit" Height="88" HorizontalAlignment="Left" Margin="729,117,0,578" Name="surfaceButton1" Width="99" Background="#FFDEAF00" Click="surfaceButton1_Click" />
                     <s:SurfaceButton Content="Settings" Height="88" HorizontalAlignment="Left" Margin="456,117,0,578" Name="surfaceButton2" Width="99" Background="#FFDEAF00" Click="surfaceButton2_Click" />
