@@ -54,19 +54,28 @@
                         <Line X1="{Binding ElementName=Monday, Path=ActualWidth}" Y1="0" X2="{Binding ElementName=Monday, Path=ActualWidth}" Y2="{Binding ElementName=Monday, Path=ActualHeight}" Stroke="Black" StrokeThickness="3" />
 
                         <!-- Day header -->
-                        <TextBlock Name="MondayTextBlock" FontWeight="Bold" FontSize="22" Text="Monday 1st" Margin="0,2,0,0" />
-                        <Line X1="0" Y1="30" X2="{Binding ElementName=MondayTextBlock, Path=ActualWidth}" Y2="30" Stroke="Black" />
+                        <TextBlock Name="MondayTextBlock" FontWeight="Bold" FontSize="22" Text="Monday 1st" Margin="150,2,0,0" />
+                        <Line X1="0" Y1="30" X2="{Binding ElementName=MondayTextBlock, Path=ActualWidth}" Y2="30"  />
 
                         <!-- Morning -->
-                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
-
+                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <Line Name="Sep1" X1="0" Y1="70" X2="{Binding ElementName=Monday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="" Canvas.Top="65" FontSize="16" Foreground="Gray" />
-
+                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <Line Name="Sep2" X1="0" Y1="110" X2="{Binding ElementName=Monday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
                         <!-- Evening -->
-                        <TextBlock Text="" Canvas.Top="95" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <Line Name="Sep3" X1="0" Y1="150" X2="{Binding ElementName=Monday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
+
+                        <!-- 4 -->
+                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <Line Name="Sep4" X1="0" Y1="190" X2="{Binding ElementName=Monday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
+
+
+
+
                     </Canvas>
 
                     <!-- Tuesday -->
@@ -76,19 +85,26 @@
                         <Line X1="{Binding ElementName=Tuesday, Path=ActualWidth}" Y1="0" X2="{Binding ElementName=Tuesday, Path=ActualWidth}" Y2="{Binding ElementName=Tuesday, Path=ActualHeight}" Stroke="Black" StrokeThickness="3" />
 
                         <!-- Day header -->
-                        <TextBlock Name="TuesdayTextBlock" FontWeight="Bold" FontSize="22" Text="Tuesday 2nd" Margin="0,2,0,0" />
-                        <Line X1="0" Y1="30" X2="{Binding ElementName=TuesdayTextBlock, Path=ActualWidth}" Y2="30" Stroke="Black" />
+                        <TextBlock Name="TuesdayTextBlock"  FontWeight="Bold" FontSize="22" Text="Tuesday 2nd" Margin="150,2,0,0" />
+                        <Line X1="0" Y1="30" X2="{Binding ElementName=TuesdayTextBlock, Path=ActualWidth}" Y2="30" />
 
                         <!-- Morning -->
-                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
-
+                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="70" X2="{Binding ElementName=Tuesday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="" Canvas.Top="65" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="110" X2="{Binding ElementName=Tuesday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="" Canvas.Top="95" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="150" X2="{Binding ElementName=Tuesday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
+
+                        <!-- 4 -->
+                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="190" X2="{Binding ElementName=Tuesday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
+                        
                     </Canvas>
 
                     <!-- Wednesday -->
@@ -98,20 +114,26 @@
                         <Line X1="{Binding ElementName=Wednesday, Path=ActualWidth}" Y1="0" X2="{Binding ElementName=Wednesday, Path=ActualWidth}" Y2="{Binding ElementName=Wednesday, Path=ActualHeight}" Stroke="Black" StrokeThickness="3" />
 
                         <!-- Day header -->
-                        <TextBlock Name="WednesdayTextBlock" FontWeight="Bold" FontSize="22" Text="Wednesday 3rd" Margin="0,2,0,0" />
-                        <Line X1="0" Y1="30" X2="{Binding ElementName=WednesdayTextBlock, Path=ActualWidth}" Y2="30" Stroke="Black" />
+                        <TextBlock Name="WednesdayTextBlock" FontWeight="Bold" FontSize="22" Text="Wednesday 3rd" Margin="150,2,0,0" />
+                        <Line X1="0" Y1="30" X2="{Binding ElementName=WednesdayTextBlock, Path=ActualWidth}" Y2="30"  />
 
 
                         <!-- Morning -->
-                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
-
+                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="70" X2="{Binding ElementName=Wednesday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="" Canvas.Top="65" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="110" X2="{Binding ElementName=Wednesday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="" Canvas.Top="95" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="150" X2="{Binding ElementName=Wednesday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
+
+                        <!-- 4 -->
+                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="190" X2="{Binding ElementName=Wednesday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
                     </Canvas>
 
                     <!-- Thursday -->
@@ -121,19 +143,25 @@
                         <Line X1="{Binding ElementName=Thursday, Path=ActualWidth}" Y1="0" X2="{Binding ElementName=Thursday, Path=ActualWidth}" Y2="{Binding ElementName=Thursday, Path=ActualHeight}" Stroke="Black" StrokeThickness="3" />
 
                         <!-- Day header -->
-                        <TextBlock Name="ThursdayTextBlock" FontWeight="Bold" FontSize="22" Text="Thursday 4th" Margin="0,2,0,0" />
-                        <Line X1="0" Y1="30" X2="{Binding ElementName=ThursdayTextBlock, Path=ActualWidth}" Y2="30" Stroke="Black" />
+                        <TextBlock Name="ThursdayTextBlock" FontWeight="Bold" FontSize="22" Text="Thursday 4th" Margin="150,2,0,0" />
+                        <Line X1="0" Y1="30" X2="{Binding ElementName=ThursdayTextBlock, Path=ActualWidth}" Y2="30"  />
 
                         <!-- Morning -->
-                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
-
+                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="70" X2="{Binding ElementName=Thursday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="" Canvas.Top="65" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="110" X2="{Binding ElementName=Thursday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="" Canvas.Top="95" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="150" X2="{Binding ElementName=Thursday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
+
+                        <!-- 4 -->
+                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="190" X2="{Binding ElementName=Thursday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
                     </Canvas>
 
                     <!-- Column #2 -->
@@ -143,19 +171,25 @@
                         <Line X1="0" Y1="0" X2="{Binding ElementName=Friday, Path=ActualWidth}" Y2="0" Stroke="Black" StrokeThickness="3" />
 
                         <!-- Day header -->
-                        <TextBlock Name="FridayTextBlock" FontWeight="Bold" FontSize="22" Text="Friday 5th" Margin="0,2,0,0" />
-                        <Line X1="0" Y1="30" X2="{Binding ElementName=FridayTextBlock, Path=ActualWidth}" Y2="30" Stroke="Black" />
+                        <TextBlock Name="FridayTextBlock" FontWeight="Bold" FontSize="22" Text="Friday 5th" Margin="150,2,0,0" />
+                        <Line X1="0" Y1="30" X2="{Binding ElementName=FridayTextBlock, Path=ActualWidth}" Y2="30"  />
 
                         <!-- Morning -->
-                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
-
+                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="70" X2="{Binding ElementName=Friday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="" Canvas.Top="65" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="110" X2="{Binding ElementName=Friday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="" Canvas.Top="95" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="150" X2="{Binding ElementName=Friday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
+
+                        <!-- 4 -->
+                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="190" X2="{Binding ElementName=Friday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
                     </Canvas>
 
                     <!-- Saturday -->
@@ -164,19 +198,25 @@
                         <Line X1="0" Y1="0" X2="{Binding ElementName=Saturday, Path=ActualWidth}" Y2="0" Stroke="Black" StrokeThickness="3" />
 
                         <!-- Day header -->
-                        <TextBlock Name="SaturdayTextBlock" FontWeight="Bold" FontSize="22" Text="Saturday 6th" Margin="0,2,0,0" />
-                        <Line X1="0" Y1="30" X2="{Binding ElementName=SaturdayTextBlock, Path=ActualWidth}" Y2="30" Stroke="Black" />
+                        <TextBlock Name="SaturdayTextBlock" FontWeight="Bold" FontSize="22" Text="Saturday 6th" Margin="150,2,0,0" />
+                        <Line X1="0" Y1="30" X2="{Binding ElementName=SaturdayTextBlock, Path=ActualWidth}" Y2="30" />
 
                         <!-- Morning -->
-                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
-
+                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="70" X2="{Binding ElementName=Saturday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="" Canvas.Top="65" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="110" X2="{Binding ElementName=Saturday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="" Canvas.Top="95" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="150" X2="{Binding ElementName=Saturday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
+
+                        <!-- 4 -->
+                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="190" X2="{Binding ElementName=Saturday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
                     </Canvas>
 
                     <!-- Sunday -->
@@ -185,19 +225,25 @@
                         <Line X1="0" Y1="0" X2="{Binding ElementName=Sunday, Path=ActualWidth}" Y2="0" Stroke="Black" StrokeThickness="3" />
 
                         <!-- Day header -->
-                        <TextBlock Name="SundayTextBlock" FontWeight="Bold" FontSize="22" Text="Sunday 7th" Margin="0,2,0,0" />
-                        <Line X1="0" Y1="30" X2="{Binding ElementName=SundayTextBlock, Path=ActualWidth}" Y2="30" Stroke="Black" />
+                        <TextBlock Name="SundayTextBlock" FontWeight="Bold" FontSize="22" Text="Sunday 7th" Margin="150,2,0,0" />
+                        <Line X1="0" Y1="30" X2="{Binding ElementName=SundayTextBlock, Path=ActualWidth}" Y2="30"  />
 
                         <!-- Morning -->
-                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
-
+                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="70" X2="{Binding ElementName=Sunday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="" Canvas.Top="65" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="110" X2="{Binding ElementName=Sunday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="" Canvas.Top="95" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="150" X2="{Binding ElementName=Sunday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
+
+                        <!-- 4 -->
+                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <Line X1="0" Y1="190" X2="{Binding ElementName=Sunday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
                     </Canvas>
 
                     <!-- Notes -->
@@ -206,8 +252,8 @@
                         <Line X1="0" Y1="0" X2="{Binding ElementName=Notes, Path=ActualWidth}" Y2="0" Stroke="Black" StrokeThickness="3" />
 
                         <!-- Day header -->
-                        <TextBlock Name="NotesTextBlock" FontWeight="Bold" FontSize="22" Text="Notes" Margin="0,2,0,0" />
-                        <Line X1="0" Y1="30" X2="{Binding ElementName=NotesTextBlock, Path=ActualWidth}" Y2="30" Stroke="Black" />
+                        <TextBlock Name="NotesTextBlock" FontWeight="Bold" FontSize="22" Text="Notes" Margin="150,2,0,0" />
+                        <Line X1="0" Y1="30" X2="{Binding ElementName=NotesTextBlock, Path=ActualWidth}" Y2="30"  />
 
                         <Line Name="RowLine1" X1="0" Y1="60" X2="{Binding ElementName=Notes, Path=ActualWidth}" Y2="60" Stroke="Gray" />
                         <Line Name="RowLine2" X1="0" Y1="90" X2="190" Y2="90" Stroke="Gray" />

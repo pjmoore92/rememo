@@ -40,8 +40,9 @@ namespace Rememo
         public const int REMINDER_HEIGHT = 23;
 
         public const int MORNING_OFFSET_Y = 35;
-        public const int AFTERNOON_OFFSET_Y = 65;
-        public const int EVENING_OFFSET_Y = 95;
+        public const int AFTERNOON_OFFSET_Y = 75;
+        public const int EVENING_OFFSET_Y = 115;
+        public const int FOUR_OFFSET_Y = 155;
 
         private String enteredText = "";
         private bool underline;
@@ -275,6 +276,7 @@ namespace Rememo
                 case TimeOfDay.Morning: y = MORNING_OFFSET_Y; break;
                 case TimeOfDay.Afternoon: y = AFTERNOON_OFFSET_Y; break;
                 case TimeOfDay.Evening: y = EVENING_OFFSET_Y; break;
+                case TimeOfDay.Day: y = FOUR_OFFSET_Y; break;
                 default: y = MORNING_OFFSET_Y; break;
             }
             Console.WriteLine("It is getting to this line!! 227");
@@ -676,19 +678,19 @@ namespace Rememo
 
         private TimeOfDay ClickArea(Point point)
         {
-            //Rect morning = new Rect(0, Sep1.Y1 - 30, Sep1.ActualWidth, 30);
-            //Rect afternoon = new Rect(0, Sep2.Y1 - 30, Sep2.ActualWidth, 30);
-            //Rect evening = new Rect(0, Sep2.Y1 + 1, Sep2.ActualWidth, 30);
-            /*
+            Rect morning = new Rect(0, Sep1.Y1 - 30, Sep1.ActualWidth, 30);
+            Rect afternoon = new Rect(0, Sep2.Y1 - 30, Sep2.ActualWidth, 30);
+            Rect evening = new Rect(0, Sep2.Y1 + 1, Sep2.ActualWidth, 30);
+            
             if (morning.Contains(point))
                 return TimeOfDay.Morning;
             else if (afternoon.Contains(point))
                 return TimeOfDay.Afternoon;
             else if (evening.Contains(point))
                 return TimeOfDay.Evening;
-            else*/
+            else
             //Forced code - MUST FIX!    
-            return TimeOfDay.Morning;
+                return TimeOfDay.Day;
         }
 
      
@@ -718,6 +720,7 @@ namespace Rememo
 
         private TimeSpan GetTimeForTimeOfDay(TimeOfDay time)
         {
+            //CHANGE THIS
             int h = 0, m = 0;
             Console.WriteLine("Time of day is: " + time.ToString());
 
