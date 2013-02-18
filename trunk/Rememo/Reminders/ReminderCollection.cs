@@ -11,7 +11,7 @@ using System.Threading;
 public class ReminderCollection : ReminderObservable, IEnumerable<Reminder>
 {
     // Update interface in seconds
-    private const int UPDATE_INTERVAL = 60;
+    private const int UPDATE_INTERVAL = 20;
 
     private List<ReminderObserver> observers;
     private Thread reminderClock;
@@ -170,6 +170,7 @@ public class ReminderCollection : ReminderObservable, IEnumerable<Reminder>
             else
             {
                 Console.WriteLine("\nShowing reminders...");
+                
 
                 foreach (Reminder reminder in reminders)
                 {
