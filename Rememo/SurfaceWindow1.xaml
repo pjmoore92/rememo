@@ -26,12 +26,13 @@
                    <!-- <s:SurfaceButton Content="Calendar" Height="88" HorizontalAlignment="Left" Name="calendarButton" Width="99" Margin="117,29,0,666" Background="#FFDEAF00" Click="calendarButton_Click"></s:SurfaceButton>-->
                     <s:SurfaceButton Content="Quit" Height="88" HorizontalAlignment="Left" Margin="729,117,0,578" Name="surfaceButton1" Width="99" Background="#FFDEAF00" Click="surfaceButton1_Click" />
                     <s:SurfaceButton Content="Settings" Height="88" HorizontalAlignment="Left" Margin="456,117,0,578" Name="surfaceButton2" Width="99" Background="#FFDEAF00" Click="surfaceButton2_Click" />
+                    <s:SurfaceButton Background="#FFDEAF00" Content="Dismiss Reminder" Height="88" HorizontalAlignment="Left" Margin="456,405,0,290" Name="surfaceButton4" Width="110" Click="surfaceButton4_Click" DataContext="{Binding}" Visibility="Hidden" Opacity="1" />
                     <s:SurfaceButton Background="#FFDEAF00" Content="Display Calendar" Height="88" HorizontalAlignment="Left" Margin="184,117,0,578" Name="surfaceButton3" Width="110" Click="surfaceButton3_Click" DataContext="{Binding}" />
                     <TextBlock Name="welcome" FontWeight="Bold" FontSize="30" Margin ="0,521,6,186" TextAlignment="Center" />
                     <TextBlock Name="hours" FontWeight="Bold" FontSize="50" Text="Hours" Margin="349,592,547,115" />
                     <TextBlock Name="minutes" FontWeight="Bold" FontSize="50" Text="Minutes" Margin="454,592,442,115" />
                     <TextBlock Name="seconds" FontWeight="Bold" FontSize="50" Text="Seconds" Margin="551,592,345,115" />
-                    <Border Name="reminderBorder" BorderThickness="45" Height="783" HorizontalAlignment="Left" Margin="-5,0,0,0" VerticalAlignment="Top" Width="1005" DataContext="{Binding}"  />
+                    <Border Name="reminderBorder" BorderThickness="45" Height="783" HorizontalAlignment="Left" Margin="-1,32,0,0" VerticalAlignment="Top" Width="1005" DataContext="{Binding}"  />
                 </Grid>
             </TabItem>
             
@@ -295,25 +296,12 @@
                             <s:SurfaceRadioButton Content="Afternoon" GroupName="Options1" Name="two" Margin="237,187,417,12" />
                             <s:SurfaceRadioButton Content="Evening" GroupName="Options1" Name="three" Margin="390,189,290,14" />
                             <s:SurfaceRadioButton Content="Special" GroupName="Options1" Name="four" Margin="531,189,149,14" />
-                            
-
+                            <s:SurfaceCheckBox Name="priorityCheck" Margin="664,143,24,60">High Priority?</s:SurfaceCheckBox>
                         </Grid>
                         <Label Content="Time:" HorizontalAlignment="Right" FontSize="32" Margin="0,143,0,6" VerticalContentAlignment="Center" />
                     </Grid>
 
                     <!-- Annotation selection -->
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <!--<s:SurfaceButton Style="{StaticResource ButtonStyle}" Background="{StaticResource Colour6}" Grid.Column="0" Content="Circle" Width="200" Height="80" FontSize="32" Name="button_circle" Click="button_circle_Click" />
-                        <s:SurfaceButton Style="{StaticResource ButtonStyle}" Background="{StaticResource Colour6}" Grid.Column="1" Content="Underline" Width="200" Height="80" FontSize="32" Name="button_underline" Click="button_underline_Click" />
-                        <s:SurfaceButton Style="{StaticResource ButtonStyle}" Background="{StaticResource Colour6}" Grid.Column="2" Content="Star" Width="200" Height="80" FontSize="32" Name="button_star" Click="button_star_Click" />-->
-                    </Grid>
-
                     <!-- Cancel, OK -->
                     <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
