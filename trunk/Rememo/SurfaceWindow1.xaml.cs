@@ -542,7 +542,8 @@ namespace Rememo
             // Get any existing diary entry.
             DiaryEntry entry = diaryEntryCollection.GetEntry(date, when);
 
-            Console.WriteLine("Checking if null line 454");
+            //Reset Prio check box
+            priorityCheck.IsChecked = false;
             if (entry == null)
             {
                 // No existing entry - create one!
@@ -554,6 +555,7 @@ namespace Rememo
                // underline = false;
                // asterisk = false;
                // circle = false;
+                
 
                 // Initialise new entry
                 newEntry = new DiaryEntry();
@@ -573,6 +575,10 @@ namespace Rememo
 
                 //ResetKeyboard();
                 diaryEntryCanvas.Text = entry.Text;
+                if (entry.Reminder.Priority == ReminderPriority.High)
+                {
+                    priorityCheck.IsChecked = true;
+                }
                 //enteredText = entry.Text;
                 //oldText = entry.Text;
 
@@ -721,7 +727,7 @@ namespace Rememo
 
         private TimeSpan GetTimeForTimeOfDay(TimeOfDay time)
         {
-            //CHANGE THIS
+            
             int h = 0, m = 0;
             Console.WriteLine("Time of day is: " + time.ToString());
 
@@ -738,7 +744,7 @@ namespace Rememo
 
         private TimeSpan getTimeForSelection(TimeOfDay time)
         {
-            //CHANGE THIS
+            
             int h = 0, m = 0;
             Console.WriteLine("Time of day is: " + time.ToString());
 
@@ -792,7 +798,7 @@ namespace Rememo
 
             // Assign a high priority if annotations are used
            
-            ReminderPriority priority = (newEntry.Underline || newEntry.Circle || newEntry.Asterisk) ? ReminderPriority.High : ReminderPriority.Low;
+            ReminderPriority priority = (newEntry.Underline || newEntry.Circle || newEntry.Asterisk || priorityCheck.IsChecked == true) ? ReminderPriority.High : ReminderPriority.Low;
 
             // Then register a new one
            
@@ -804,6 +810,7 @@ namespace Rememo
             // Save newEntry
 
             Console.WriteLine("Have just added a new entry?? " + DateTime.Now.ToString());
+            Console.WriteLine("Priority was " + priority.ToString());
             diaryEntryCollection.AddEntry(newEntry);
 
             // Update diary UI
@@ -891,6 +898,7 @@ namespace Rememo
                 diaryConfig.AfternoonTime = TimeSpan.Parse(setAfternoon.Text);
                 diaryConfig.EveningTime = TimeSpan.Parse(setEvening.Text);
                 diaryConfig.SpecialTime = TimeSpan.Parse(setSpecial.Text);
+                DiaryManager.WriteConfig(diaryConfig);
             }
             catch (Exception)
             {
@@ -947,6 +955,7 @@ namespace Rememo
                 //DisplaySomething();
                 UserNotifications.RequestNotification("The following reminder is due", reminderToDeliver.ToString());
                 reminderBorder.BorderBrush = Brushes.Yellow;
+                surfaceButton4.Visibility = System.Windows.Visibility.Visible;
 
                 //AddAbstractReminder(canvas);
 
@@ -977,6 +986,13 @@ namespace Rememo
         private void setSpecial_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void surfaceButton4_Click(object sender, RoutedEventArgs e)
+        {
+            reminderBorder.BorderBrush = Brushes.Teal;
+            reminderToDeliver.Delivered = true;
+            surfaceButton4.Visibility = System.Windows.Visibility.Hidden;
         }
 
        
