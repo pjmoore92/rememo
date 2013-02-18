@@ -39,13 +39,16 @@
     
     <!-- Name of the resource for disabled musicons -->
     <system:String x:Key="DisabledResource">Colour6</system:String>
+  
     
     <!-- Reminder delivery hours (24hr time) -->
-    <system:Int16 x:Key="MorningTime">20</system:Int16>
+    <system:Int16 x:Key="MorningTime">1</system:Int16>
     <system:Int16 x:Key="AfternoonTime">12</system:Int16>
     <system:Int16 x:Key="EveningTime">19</system:Int16>
+    <system:Int16 x:Key="SpecialTime">20</system:Int16>
 	
-    <system:Int16 x:Key="MorningTimeMins">0</system:Int16>
+    <system:Int16 x:Key="MorningTimeMins">22</system:Int16>
     <system:Int16 x:Key="AfternoonTimeMins">0</system:Int16>
     <system:Int16 x:Key="EveningTimeMins">0</system:Int16>
+    <system:Int16 x:Key="SpecialTimeMins">0</system:Int16>
 </ResourceDictionary>

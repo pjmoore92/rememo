@@ -2,12 +2,14 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:s="http://schemas.microsoft.com/surface/2008"
-    Title="Rememo" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Loaded="SurfaceWindow_Loaded">
+    Title="Rememo" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Loaded="SurfaceWindow_Loaded" DataContext="{Binding}">
   <s:SurfaceWindow.Resources>
-    <ImageBrush x:Key="WindowBackground" Stretch="None" Opacity="0.6" ImageSource="pack://application:,,,/Resources/WindowBackground.jpg"/>
-  </s:SurfaceWindow.Resources>
+        <ImageBrush x:Key="WindowBackground" Stretch="None" Opacity="0.6" ImageSource="pack://application:,,,/Resources/WindowBackground.jpg"/>
+    </s:SurfaceWindow.Resources>
 
-  <Grid Background="White" Width="1000" Height="800">
+
+
+    <Grid Background="White" Width="1000" Height="800">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="949*" />
@@ -29,7 +31,7 @@
                     <TextBlock Name="hours" FontWeight="Bold" FontSize="50" Text="Hours" Margin="349,592,547,115" />
                     <TextBlock Name="minutes" FontWeight="Bold" FontSize="50" Text="Minutes" Margin="454,592,442,115" />
                     <TextBlock Name="seconds" FontWeight="Bold" FontSize="50" Text="Seconds" Margin="551,592,345,115" />
-                    <Border Name="reminderBorder" BorderThickness="45" Height="783" HorizontalAlignment="Left" Margin="-5,0,0,0" VerticalAlignment="Top" Width="1005" DataContext="{Binding}" />
+                    <Border Name="reminderBorder" BorderThickness="45" Height="783" HorizontalAlignment="Left" Margin="-5,0,0,0" VerticalAlignment="Top" Width="1005" DataContext="{Binding}"  />
                 </Grid>
             </TabItem>
             
@@ -283,40 +285,17 @@
 
                         <Label Content="Diary entry:" FontSize="32" VerticalContentAlignment="Center" Margin="0,0,0,149" />
 
-                        <Grid Grid.Column="1">
+                        <Grid Grid.Column="1" DataContext="{Binding}">
                             <Border BorderBrush="Black" BorderThickness="1" Margin="0,0,0,150">
                                 <s:SurfaceTextBox Background="White" HorizontalAlignment="Stretch" Name="diaryEntryCanvas" Margin="0,0,0,0" Height="111" Width="823" />
                                 <!--<Canvas Background="White" HorizontalAlignment="Stretch" s:Contacts.ContactDown="diaryEntryCanvas_ContactDown"  Name="diaryEntryCanvas" Margin="0,0,0,0" />-->
                             </Border>
                             <TextBlock Height="30" HorizontalAlignment="Left" Margin="1,0,0,125" Text="Tap above to enter text" FontSize="24" VerticalAlignment="Bottom" Foreground="#FF434343" />
-                           
-                            <Label Name="timeSelect" Margin="16,177,717,44" FontSize="28" FontStretch="Normal"></Label>
+                            <s:SurfaceRadioButton Content="Morning" GroupName="Options1" Name="one" Margin="60,199,638,23" />
+                            <s:SurfaceRadioButton Content="Afternoon" GroupName="Options1" Name="two" Margin="237,187,417,12" />
+                            <s:SurfaceRadioButton Content="Evening" GroupName="Options1" Name="three" Margin="390,189,290,14" />
+                            <s:SurfaceRadioButton Content="Special" GroupName="Options1" Name="four" Margin="531,189,149,14" />
                             
-                            <s:SurfaceListBox Name="ContentSelector" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="138,150,0,-49" ScrollViewer.VerticalScrollBarVisibility="Hidden" SelectionChanged="OnSelectionChanged" Height="160" Width="110" Background="#FFFFCC4E" BorderBrush="#FFD7D721" Foreground="#FF25DEA9">
-                                <s:SurfaceListBoxItem> 01:00 </s:SurfaceListBoxItem >
-                                <s:SurfaceListBoxItem> 02:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 03:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 04:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 05:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 06:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 07:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 08:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 09:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 10:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 11:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 12:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 13:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 14:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 15:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 16:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 17:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 18:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 19:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 20:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 21:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 22:00 </s:SurfaceListBoxItem>
-                                <s:SurfaceListBoxItem> 23:00 </s:SurfaceListBoxItem>
-                            </s:SurfaceListBox>
 
                         </Grid>
                         <Label Content="Time:" HorizontalAlignment="Right" FontSize="32" Margin="0,143,0,6" VerticalContentAlignment="Center" />
@@ -360,9 +339,17 @@
 
             <TabItem Name="TabConfig" Header="Config">
                 <Grid>
-                    <Label Margin="172,237,681,511">ReMemo Username</Label>
-                    <s:SurfaceTextBox Name="userName" Margin="48,-124,-48,124" Height="61" Width="452"  TextChanged="userName_TextChanged"/>
-                    <s:SurfaceButton Content="Save" Grid.Column="1" Height="70" HorizontalAlignment="Left" Margin="436,388,0,0" Name="button2" VerticalAlignment="Top" Width="136" Click="button2_Click" />
+                    <Label Margin="171,81,682,667">ReMemo Username</Label>
+                    <s:SurfaceTextBox Name="userName" Margin="319,71,224,651" Height="61" Width="452"  TextChanged="userName_TextChanged"/>
+                    <s:SurfaceButton Content="Save" Height="70" HorizontalAlignment="Left" Margin="769,609,0,0" Name="button2" VerticalAlignment="Top" Width="136" Click="button2_Click" />
+                    <s:SurfaceTextBox Height="61" Margin="221,181,582,541" Name="setMorning" TextChanged="setMorning_TextChanged"/>
+                    <s:SurfaceTextBox Height="61" Margin="727,181,76,541" Name="setAfternoon" TextChanged="setAfternoon_TextChanged"/>
+                    <s:SurfaceTextBox Height="61" Margin="221,276,582,446" Name="setEvening" TextChanged="setEvening_TextChanged" />
+                    <s:SurfaceTextBox Height="61" Margin="727,276,76,446" Name="setSpecial" TextChanged="setSpecial_TextChanged"/>
+                    <Label Content="Morning Time" Height="40" HorizontalAlignment="Left" Margin="118,190,0,0" Name="label1" VerticalAlignment="Top" Width="85" />
+                    <Label Content="Afternoon Time" Height="40" HorizontalAlignment="Left" Margin="627,190,0,0" Name="label2" VerticalAlignment="Top" Width="94" />
+                    <Label Content="Evening Time" Height="40" HorizontalAlignment="Left" Margin="118,284,0,0" Name="label3" VerticalAlignment="Top" Width="85" />
+                    <Label Content="Special Time" Height="40" HorizontalAlignment="Left" Margin="636,284,0,0" Name="label4" VerticalAlignment="Top" Width="85" />
                 </Grid>
             </TabItem>
 

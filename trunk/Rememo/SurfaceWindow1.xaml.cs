@@ -15,6 +15,7 @@ using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
 using System.Collections.Generic;
 using System.Timers;
+using System.Globalization;
 
 namespace Rememo
 {
@@ -735,6 +736,31 @@ namespace Rememo
             return new TimeSpan(h, m, 0);
         }
 
+        private TimeSpan getTimeForSelection(TimeOfDay time)
+        {
+            //CHANGE THIS
+            int h = 0, m = 0;
+            Console.WriteLine("Time of day is: " + time.ToString());
+
+            if (one.IsChecked == true)
+            {
+                return diaryConfig.MorningTime;
+            }
+            else if (two.IsChecked == true)
+                {
+                    return diaryConfig.AfternoonTime;
+            }
+            else if (three.IsChecked == true)
+            {
+                return diaryConfig.EveningTime;
+            }
+            else if (four.IsChecked == true)
+            {
+                return diaryConfig.SpecialTime;
+            }
+            return new TimeSpan(h, m, 0);
+        }
+
         private void button_acceptEntry_Click(object sender, RoutedEventArgs e)
         {
             newEntry.Text = diaryEntryCanvas.Text;
@@ -748,7 +774,9 @@ namespace Rememo
 
             #region Create reminder for entry
             // Create a new reminder for the chosen time and date
-            TimeSpan time = GetTimeForTimeOfDay(newEntry.Time);
+            //TimeSpan time = GetTimeForTimeOfDay(newEntry.Time);
+            
+            TimeSpan time = getTimeForSelection(newEntry.Time);
 
             // Take the day, month and year from the existing reminder. Calculate time based on the TimeOfDay.
             DateTime date = new DateTime(newEntry.Date.Year, newEntry.Date.Month, newEntry.Date.Day, time.Hours, time.Minutes, time.Seconds);
@@ -819,22 +847,31 @@ namespace Rememo
         private void surfaceButton2_Click(object sender, RoutedEventArgs e)
         {
             userName.Text = diaryConfig.Name;
+            setMorning.Text = diaryConfig.MorningTime.ToString();
+            setAfternoon.Text = diaryConfig.AfternoonTime.ToString();
+            setEvening.Text = diaryConfig.EveningTime.ToString();
+            setSpecial.Text = diaryConfig.SpecialTime.ToString();
             TabConfig.IsSelected = true;
         }
 
 
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+       /* private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             String temp = ContentSelector.SelectedItem.ToString();
             timeSelect.Content = temp.Substring(temp.IndexOf(':')+1,6);
 
-        }
+        }*/
 
         private void userName_Loaded(object sender, RoutedEventArgs e)
         {
             if (DiaryManager.ConfigExists())
             {
                 userName.Text = diaryConfig.Name;
+                setMorning.Text = diaryConfig.MorningTime.ToString();
+                setAfternoon.Text = diaryConfig.AfternoonTime.ToString();
+                setEvening.Text = diaryConfig.EveningTime.ToString();
+                setSpecial.Text = diaryConfig.SpecialTime.ToString();
+
             }
         }
 
@@ -844,8 +881,21 @@ namespace Rememo
             DiaryManager.WriteConfig(diaryConfig);
         }
 
+        
+
         private void button2_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                diaryConfig.MorningTime = TimeSpan.Parse(setMorning.Text);
+                diaryConfig.AfternoonTime = TimeSpan.Parse(setAfternoon.Text);
+                diaryConfig.EveningTime = TimeSpan.Parse(setEvening.Text);
+                diaryConfig.SpecialTime = TimeSpan.Parse(setSpecial.Text);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("{0}: Exception");
+            }
             welcomeText(true);
             tabItem1.IsSelected = true;
         }
@@ -896,6 +946,7 @@ namespace Rememo
               
                 //DisplaySomething();
                 UserNotifications.RequestNotification("The following reminder is due", reminderToDeliver.ToString());
+                reminderBorder.BorderBrush = Brushes.Yellow;
 
                 //AddAbstractReminder(canvas);
 
@@ -908,5 +959,29 @@ namespace Rememo
         }
         #endregion
 
+        private void setMorning_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void setAfternoon_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void setEvening_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void setSpecial_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+       
+
     }
+
+   
 }
