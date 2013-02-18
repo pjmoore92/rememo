@@ -924,8 +924,11 @@ namespace Rememo
 
             for (int i = 1; i < reminders.Count; i++)
             {
+                Console.WriteLine("Got into for loop in deliverreminders");
+                remindersBox.Items.Add(reminders[i].ToString());
                 if (reminders[i].Time.Ticks > max.Time.Ticks)
                     max = reminders[i];
+                
             }
 
             if (max.Time.Day < DateTime.Now.Day)
@@ -954,7 +957,14 @@ namespace Rememo
               
                 //DisplaySomething();
                 UserNotifications.RequestNotification("The following reminder is due", reminderToDeliver.ToString());
-                reminderBorder.BorderBrush = Brushes.Yellow;
+                if (reminderToDeliver.Priority == ReminderPriority.High)
+                {
+                    reminderBorder.BorderBrush = Brushes.Red;
+                }
+                else
+                {
+                    reminderBorder.BorderBrush = Brushes.Yellow;
+                }
                 surfaceButton4.Visibility = System.Windows.Visibility.Visible;
 
                 //AddAbstractReminder(canvas);
@@ -993,6 +1003,16 @@ namespace Rememo
             reminderBorder.BorderBrush = Brushes.Teal;
             reminderToDeliver.Delivered = true;
             surfaceButton4.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void surfaceButton_Click(object sender, RoutedEventArgs e)
+        {
+            Reminders.IsSelected = true;
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            tabItem1.IsSelected = true;
         }
 
        
