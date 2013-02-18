@@ -22,6 +22,10 @@ namespace Rememo
                     newConfig.StartDate = DateTime.Now;
                     newConfig.Weeks = DEFAULT_WEEKS;
                     newConfig.Name = "User";
+                    newConfig.MorningTime = new TimeSpan(8, 0, 0);
+                    newConfig.AfternoonTime = new TimeSpan(12, 0, 0);
+                    newConfig.EveningTime = new TimeSpan(18, 0, 0);
+                    newConfig.SpecialTime = new TimeSpan(21, 0, 0);
 
                     WriteConfig(newConfig);
                 }
@@ -32,6 +36,11 @@ namespace Rememo
                 config.StartDate = DateTime.Parse(lines[0]);
                 config.Weeks = int.Parse(lines[1]);
                 config.Name = lines[2];
+                config.MorningTime = TimeSpan.Parse(lines[3]);
+                config.AfternoonTime = TimeSpan.Parse(lines[4]);
+                config.EveningTime = TimeSpan.Parse(lines[5]);
+                config.SpecialTime = TimeSpan.Parse(lines[6]);
+
 
                 return config;
             }
@@ -41,7 +50,7 @@ namespace Rememo
             /// </summary>
             public static void WriteConfig(DiaryConfig config)
             {
-                String s = String.Format("{0}\n{1}\n{2}", config.StartDate.ToString(), config.Weeks, config.Name);
+                String s = String.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}", config.StartDate.ToString(), config.Weeks, config.Name, config.MorningTime, config.AfternoonTime, config.EveningTime, config.SpecialTime);
 
                 FileManager.Write(DIARY_CONFIG_FILE, s);
             }

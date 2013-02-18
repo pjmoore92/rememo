@@ -91,6 +91,7 @@
     <Compile Include="DiaryEntryCollection.cs" />
     <Compile Include="DiaryEntrySerializer.cs" />
     <Compile Include="diaryManager.cs" />
+    <Compile Include="EnumMatchToBooleanConverter.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Reminders\Reminder.cs" />
     <Compile Include="Reminders\ReminderCollection.cs" />
