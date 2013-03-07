@@ -74,16 +74,18 @@ namespace Rememo
         /// </summary>
         public SurfaceWindow1()
         {
-            //Console.WriteLine("Does the config exist at line 67?", DiaryManager.ConfigExists().ToString());
+            log = new Logger("Rememo");
+            log.Write("Starting application");
+            
             if (DiaryManager.ConfigExists())
             {
                 InitializeComponent();
 
                 clock.Elapsed += new System.Timers.ElapsedEventHandler(clock_Elapsed);
-                Console.WriteLine("Config found!");
+                log.Write("Config found!");
                 clock.Enabled = true;
-                Console.WriteLine("clock enabled");
-                Console.WriteLine("Welcome Text set");
+                log.Write("Clock enabled");
+                log.Write("Welcome Text set");
             }
             else
             {  
@@ -91,9 +93,9 @@ namespace Rememo
                 InitializeComponent();
 
                 clock.Elapsed += new System.Timers.ElapsedEventHandler(clock_Elapsed);
-                Console.WriteLine("No config file!");
+                log.Write("No config file!");
                 clock.Enabled = true;
-                Console.WriteLine("clock enabled");
+                log.Write("clock enabled");
                 welcomeText(false);
                 
                 
@@ -206,7 +208,7 @@ namespace Rememo
             diaryConfig = DiaryManager.ReadConfig();
             diaryEntryCollection = DiaryEntryCollection.Load();
 
-            Console.WriteLine("Initialised Diary.");
+            log.Write("Initialised Diary.");
             
 
             DateTime now = DateTime.Now;
@@ -269,7 +271,7 @@ namespace Rememo
         {
             Canvas canvas = GetCanvasForDay(entry.Date.DayOfWeek);
             //ClearOldEntry(canvas);
-            Console.WriteLine("The canvas in RenderDiaryEntry is: " + canvas.ToString());
+            log.Write("The canvas in RenderDiaryEntry is: " + canvas.ToString());
             
             int y = 0;
 
@@ -281,7 +283,7 @@ namespace Rememo
                 case TimeOfDay.Day: y = FOUR_OFFSET_Y; break;
                 default: y = MORNING_OFFSET_Y; break;
             }
-            Console.WriteLine("Canvas is: " + canvas.Name.ToString());
+            log.Write("Canvas is: " + canvas.Name.ToString());
             entry.Render(canvas, REMINDER_OFFSET_X, y, REMINDER_WIDTH, REMINDER_HEIGHT, false);
         }
 
@@ -336,7 +338,7 @@ namespace Rememo
              {
                  if (entry.Date.CompareTo(firstDayOfWeek) >= 0 && entry.Date.CompareTo(lastDayOfWeek) <= 0)
                  {
-                     Console.WriteLine("The entry is: " + entry.Text.ToString());
+                     log.Write("The entry is: " + entry.Text.ToString());
                      RenderDiaryEntry(entry);
                  }
              }
@@ -551,7 +553,7 @@ namespace Rememo
             if (entry == null)
             {
                 // No existing entry - create one!
-                Console.WriteLine("Null entry - Creating an entry!");
+                log.Write("Null entry - Creating an entry!");
                // ResetKeyboard();
                 enteredText = diaryEntryCanvas.Text;
 
@@ -781,10 +783,10 @@ namespace Rememo
             if (c_not.IsChecked == true) { newEntry.Not = true; }
             if (c_tag.IsChecked == true) { newEntry.Tag = true; }
 
-            Console.WriteLine("Abs is checked: " + newEntry.Abs);
-            Console.WriteLine("Mus is checked: " + newEntry.Mus);
-            Console.WriteLine("not is checked: " + newEntry.Not);
-            Console.WriteLine("tag is checked: " + newEntry.Tag);
+            log.Write("Abs is checked: " + newEntry.Abs);
+            log.Write("Mus is checked: " + newEntry.Mus);
+            log.Write("not is checked: " + newEntry.Not);
+            log.Write("tag is checked: " + newEntry.Tag);
 
             if (newEntry == null || newEntry.Text.Length == 0)
             {
@@ -817,23 +819,23 @@ namespace Rememo
 
             // Then register a new one
             Boolean music = newEntry.Mus;
-            Console.WriteLine("Abs is checked: " + newEntry.Abs);
-            Console.WriteLine("Mus is checked: " + newEntry.Mus);
-            Console.WriteLine("not is checked: " + newEntry.Not);
-            Console.WriteLine("tag is checked: " + newEntry.Tag);
-            Console.WriteLine("MuSIC: " + music.ToString());
+            log.Write("Abs is checked: " + newEntry.Abs);
+            log.Write("Mus is checked: " + newEntry.Mus);
+            log.Write("not is checked: " + newEntry.Not);
+            log.Write("tag is checked: " + newEntry.Tag);
+            log.Write("MuSIC: " + music.ToString());
 
             Reminder reminder = new Reminder(newEntry.Text, date, reminderInPast, reminderInPast, priority, newEntry, newEntry.Abs, music, newEntry.Tag, newEntry.Not);
             newEntry.Reminder = reminder;
-            Console.WriteLine("New Entry is : " + newEntry.Reminder.ToString());
-            Console.WriteLine("New Entry Mus is : " + newEntry.Reminder.Mus.ToString());
+            log.Write("New Entry is : " + newEntry.Reminder.ToString());
+            log.Write("New Entry Mus is : " + newEntry.Reminder.Mus.ToString());
             reminders.AddReminder(reminder);
             #endregion
 
             // Save newEntry
 
-            Console.WriteLine("Have just added a new entry?? " + DateTime.Now.ToString());
-            Console.WriteLine("Priority was " + priority.ToString());
+            log.Write("Have just added a new entry?? " + DateTime.Now.ToString());
+            log.Write("Priority was " + priority.ToString());
             diaryEntryCollection.AddEntry(newEntry);
 
             // Update diary UI
@@ -861,7 +863,7 @@ namespace Rememo
 
             TabDiary.IsSelected = true;
 
-           // log.Write("Cancelling new diary entry");
+            log.Write("Cancelling new diary entry");
         }
 
         private void surfaceButton1_Click(object sender, RoutedEventArgs e)
@@ -925,7 +927,7 @@ namespace Rememo
             }
             catch (Exception)
             {
-                Console.WriteLine("{0}: Exception");
+                log.Write("{0}: Exception");
             }
             welcomeText(true);
             tabItem1.IsSelected = true;
@@ -954,13 +956,13 @@ namespace Rememo
             if (reminders == null || reminders.Count == 0)
                 return;
 
-           // Logger.Write("Reminder", String.Format("Received {0} reminders to deliver.", reminders.Count));
+            Logger.Write("Reminder", String.Format("Received {0} reminders to deliver.", reminders.Count));
 
             Reminder max = reminders[0];
 
             for (int i = 1; i < reminders.Count; i++)
             {
-                Console.WriteLine("Got into for loop in deliverreminders");
+                log.Write("Got into for loop in deliverreminders");
                 remindersBox.Items.Add(reminders[i].ToString());
                 if (reminders[i].Time.Ticks > max.Time.Ticks)
                     max = reminders[i];
@@ -969,7 +971,7 @@ namespace Rememo
 
             if (max.Time.Day < DateTime.Now.Day)
             {
-             //   Logger.Write("Reminder", "Most recent reminder was yesterday. Not delivering.");
+                Logger.Write("Reminder", "Most recent reminder was yesterday. Not delivering.");
 
                 for (int i = 1; i < reminders.Count; i++)
                 {
@@ -981,7 +983,7 @@ namespace Rememo
                 return;
             }
 
-           // Logger.Write("Reminder", "Delivered most recent reminder.");
+            Logger.Write("Reminder", "Delivered most recent reminder.");
 
             remindersToShow = true;
             reminderToDeliver = max;
@@ -995,7 +997,7 @@ namespace Rememo
                 if (reminderToDeliver.Mus == true)
                 {
                     MediaPlayer mp = new MediaPlayer();
-                    Console.WriteLine("Should be playing music now");
+                    log.Write("Should be playing music now");
                     String filePath = "C:/Musicons/Canon.mp3";
                     try
                     {
@@ -1005,7 +1007,7 @@ namespace Rememo
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("Something went bad with music playing");
+                        log.Write("Something went bad with music playing");
                     }
                 }
                 if (reminderToDeliver.Not == true)
