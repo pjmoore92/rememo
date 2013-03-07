@@ -16,7 +16,7 @@
     <system:Int16 x:Key="DefaultMusicon">1</system:Int16>
 
     <!-- Musicon paths -->
-    <system:String x:Key="Musicon1">Resources/Musicons/Canon.mp3</system:String>
+    <system:String x:Key="Musicon1">Resources/Musicons/G6.wav</system:String>
     <system:String x:Key="Musicon2">Resources/Musicons/JamesBond.mp3</system:String>
     <system:String x:Key="Musicon3">Resources/Musicons/JurassicPark.mp3</system:String>
     <system:String x:Key="Musicon4">Resources/Musicons/Ghostbusters.mp3</system:String>

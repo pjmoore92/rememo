@@ -13,13 +13,17 @@ public class Reminder
     private bool done;
     private ReminderPriority priority;
     private DiaryEntry entry;
+    private bool abs;
+    private bool not;
+    private bool tag;
+    private bool mus;
 
     public Reminder()
-        : this("", new DateTime(), false, false, ReminderPriority.Low, null)
+        : this("", new DateTime(), false, false, ReminderPriority.Low, null, false, false, false, false)
     {
     }
 
-    public Reminder(string description, DateTime time, bool delivered, bool done, ReminderPriority priority, DiaryEntry entry)
+    public Reminder(string description, DateTime time, bool delivered, bool done, ReminderPriority priority, DiaryEntry entry, bool abs, bool mus, bool tag, bool not)
     {
         Description = description;
         Time = time;
@@ -27,6 +31,12 @@ public class Reminder
         Done = done;
         this.priority = priority;
         this.entry = entry;
+        Abs = abs;
+        Not = not;
+        Tag = tag;
+        Mus = mus;
+
+        
     }
 
     [DataMember]
@@ -69,6 +79,34 @@ public class Reminder
     {
         get { return entry; }
         set { entry = value; }
+    }
+
+    [DataMember]
+    public bool Abs
+    {
+        get { return abs; }
+        set { abs = value; }
+    }
+
+    [DataMember]
+    public bool Not
+    {
+        get { return not; }
+        set { not = value; }
+    }
+    
+    [DataMember]
+    public bool Tag
+    {
+        get { return tag; }
+        set { tag = value; }
+    }
+
+    [DataMember]
+    public bool Mus
+    {
+        get { return mus; }
+        set { mus = value; }
     }
 
     /// <summary>

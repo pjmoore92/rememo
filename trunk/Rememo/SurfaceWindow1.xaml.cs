@@ -16,6 +16,7 @@ using Microsoft.Surface.Presentation.Controls;
 using System.Collections.Generic;
 using System.Timers;
 using System.Globalization;
+using System.Media;
 
 namespace Rememo
 {
@@ -34,7 +35,7 @@ namespace Rememo
         public DiaryConfig diaryConfig;
         public int selectedWeek;
 
-        
+        Logger log;
 
         public const int REMINDER_OFFSET_X = 80;
         public const int REMINDER_WIDTH = 350;
@@ -73,7 +74,7 @@ namespace Rememo
         /// </summary>
         public SurfaceWindow1()
         {
-            Console.WriteLine("Does the config exist at line 67?", DiaryManager.ConfigExists().ToString());
+            //Console.WriteLine("Does the config exist at line 67?", DiaryManager.ConfigExists().ToString());
             if (DiaryManager.ConfigExists())
             {
                 InitializeComponent();
@@ -280,7 +281,6 @@ namespace Rememo
                 case TimeOfDay.Day: y = FOUR_OFFSET_Y; break;
                 default: y = MORNING_OFFSET_Y; break;
             }
-            Console.WriteLine("It is getting to this line!! 227");
             Console.WriteLine("Canvas is: " + canvas.Name.ToString());
             entry.Render(canvas, REMINDER_OFFSET_X, y, REMINDER_WIDTH, REMINDER_HEIGHT, false);
         }
@@ -310,8 +310,7 @@ namespace Rememo
 
                     if (((String)fe.Tag) == "Reminder")
                         toRemove.Add(child);
-                        Console.WriteLine("Something here is breaking it");
-                }
+                    }
 
                 foreach (UIElement child in toRemove)
                 {
@@ -542,8 +541,13 @@ namespace Rememo
             // Get any existing diary entry.
             DiaryEntry entry = diaryEntryCollection.GetEntry(date, when);
 
-            //Reset Prio check box
+            //Reset Check boxes
             priorityCheck.IsChecked = false;
+            c_abs.IsChecked = false;
+            c_mus.IsChecked = false;
+            c_not.IsChecked = false;
+            c_tag.IsChecked = false;
+
             if (entry == null)
             {
                 // No existing entry - create one!
@@ -555,17 +559,17 @@ namespace Rememo
                // underline = false;
                // asterisk = false;
                // circle = false;
-                
 
                 // Initialise new entry
                 newEntry = new DiaryEntry();
                 newEntry.Time = when;
                 newEntry.Date = date;
                 newEntry.TimeSelected = listboxTime;
-                
+               
+
                 newEntry.Text = diaryEntryCanvas.Text;
-                Console.WriteLine("This is what is is in diaryEntryCanvas.text when renderEntry is called from line 480: " + diaryEntryCanvas.Text);
-                Console.WriteLine("This is what is is in newEntry.text when renderEntry is called from line 480: " + newEntry.Text);
+                //Console.WriteLine("This is what is is in diaryEntryCanvas.text when renderEntry is called from line 480: " + diaryEntryCanvas.Text);
+                //Console.WriteLine("This is what is is in newEntry.text when renderEntry is called from line 480: " + newEntry.Text);
                 TabAddEntry.IsSelected = true;
                 RenderEntry();
             }
@@ -593,9 +597,10 @@ namespace Rememo
                 newEntry.Time = entry.Time;
                 newEntry.Date = entry.Date;
                 newEntry.TimeSelected = entry.TimeSelected;
-                newEntry.Underline = entry.Underline;
-                newEntry.Asterisk = entry.Asterisk;
-                newEntry.Circle = entry.Circle;
+                newEntry.Abs = entry.Abs;
+                newEntry.Mus = entry.Mus;
+                newEntry.Tag = entry.Tag;
+                newEntry.Not = entry.Not;
 
                 //UpdateAnnotationButtons();
 
@@ -604,7 +609,7 @@ namespace Rememo
                 //RenderEntry();
 
 
-                //log.Write("Add entry loaded");
+                log.Write("Add entry loaded");
             }
         }
 
@@ -705,10 +710,10 @@ namespace Rememo
         {
             UIElement source = sender as UIElement;
             Point point = e.GetPosition(source);
-            Console.WriteLine("This is the point = " + point.ToString());
+            //Console.WriteLine("This is the point = " + point.ToString());
             
             Canvas clicked = ClickLocation(point);
-            Console.WriteLine("This is the clicked variable", clicked.ToString());
+            //Console.WriteLine("This is the clicked variable", clicked.ToString());
             
             if (clicked == Notes)
             {
@@ -729,7 +734,7 @@ namespace Rememo
         {
             
             int h = 0, m = 0;
-            Console.WriteLine("Time of day is: " + time.ToString());
+            //Console.WriteLine("Time of day is: " + time.ToString());
 
             switch (time)
             {
@@ -746,7 +751,7 @@ namespace Rememo
         {
             
             int h = 0, m = 0;
-            Console.WriteLine("Time of day is: " + time.ToString());
+            //Console.WriteLine("Time of day is: " + time.ToString());
 
             if (one.IsChecked == true)
             {
@@ -771,10 +776,20 @@ namespace Rememo
         {
             newEntry.Text = diaryEntryCanvas.Text;
 
+            if (c_abs.IsChecked == true) { newEntry.Abs = true; }
+            if (c_mus.IsChecked == true) { newEntry.Mus = true; }
+            if (c_not.IsChecked == true) { newEntry.Not = true; }
+            if (c_tag.IsChecked == true) { newEntry.Tag = true; }
+
+            Console.WriteLine("Abs is checked: " + newEntry.Abs);
+            Console.WriteLine("Mus is checked: " + newEntry.Mus);
+            Console.WriteLine("not is checked: " + newEntry.Not);
+            Console.WriteLine("tag is checked: " + newEntry.Tag);
+
             if (newEntry == null || newEntry.Text.Length == 0)
             {
-                Console.WriteLine("New entry was null or 0");
-                Console.WriteLine("I think its because text length is too small:" + newEntry.Text.Length.ToString());
+                //Console.WriteLine("New entry was null or 0");
+                //Console.WriteLine("I think its because text length is too small:" + newEntry.Text.Length.ToString());
                 return;
             }
 
@@ -801,9 +816,17 @@ namespace Rememo
             ReminderPriority priority = (newEntry.Underline || newEntry.Circle || newEntry.Asterisk || priorityCheck.IsChecked == true) ? ReminderPriority.High : ReminderPriority.Low;
 
             // Then register a new one
-           
-            Reminder reminder = new Reminder(newEntry.Text, date, reminderInPast, reminderInPast, priority, newEntry);
+            Boolean music = newEntry.Mus;
+            Console.WriteLine("Abs is checked: " + newEntry.Abs);
+            Console.WriteLine("Mus is checked: " + newEntry.Mus);
+            Console.WriteLine("not is checked: " + newEntry.Not);
+            Console.WriteLine("tag is checked: " + newEntry.Tag);
+            Console.WriteLine("MuSIC: " + music.ToString());
+
+            Reminder reminder = new Reminder(newEntry.Text, date, reminderInPast, reminderInPast, priority, newEntry, newEntry.Abs, music, newEntry.Tag, newEntry.Not);
             newEntry.Reminder = reminder;
+            Console.WriteLine("New Entry is : " + newEntry.Reminder.ToString());
+            Console.WriteLine("New Entry Mus is : " + newEntry.Reminder.Mus.ToString());
             reminders.AddReminder(reminder);
             #endregion
 
@@ -908,6 +931,19 @@ namespace Rememo
             tabItem1.IsSelected = true;
         }
 
+        private static String GetMusicon(int musiconId)
+        {
+            switch (musiconId)
+            {
+                case 1: return (String)Application.Current.Resources["Musicon1"];
+                case 2: return (String)Application.Current.Resources["Musicon2"];
+                case 3: return (String)Application.Current.Resources["Musicon3"];
+                case 4: return (String)Application.Current.Resources["Musicon4"];
+                case 5: return (String)Application.Current.Resources["Musicon5"];
+                default: return (String)Application.Current.Resources["Musicon1"];
+            }
+        }
+
         #region Reminder delivery
         /// <summary>
         /// Callback function for the observable object to
@@ -956,24 +992,39 @@ namespace Rememo
                 // Update the UI
               
                 //DisplaySomething();
-                UserNotifications.RequestNotification("The following reminder is due", reminderToDeliver.ToString());
-                if (reminderToDeliver.Priority == ReminderPriority.High)
+                if (reminderToDeliver.Mus == true)
                 {
-                    reminderBorder.BorderBrush = Brushes.Red;
+                    MediaPlayer mp = new MediaPlayer();
+                    Console.WriteLine("Should be playing music now");
+                    String filePath = "C:/Musicons/Canon.mp3";
+                    try
+                    {
+                        mp.Open(new Uri(filePath, UriKind.Absolute));
+                        mp.Play();
+                        log.Write("Playing music file");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Something went bad with music playing");
+                    }
                 }
-                else
+                if (reminderToDeliver.Not == true)
                 {
-                    reminderBorder.BorderBrush = Brushes.Yellow;
+                    UserNotifications.RequestNotification("The following reminder is due", reminderToDeliver.ToString());
                 }
-                surfaceButton4.Visibility = System.Windows.Visibility.Visible;
+                if (reminderToDeliver.Abs == true)
+                {
+                    if (reminderToDeliver.Priority == ReminderPriority.High)
+                    {
+                        reminderBorder.BorderBrush = Brushes.Red;
+                    }
+                    else
+                    {
+                        reminderBorder.BorderBrush = Brushes.Yellow;
+                    }
+                    surfaceButton4.Visibility = System.Windows.Visibility.Visible;
+                }
 
-                //AddAbstractReminder(canvas);
-
-                if (reminderToDeliver.Priority == ReminderPriority.High)
-                {
-                    // Play musicon
-                   // MusiconManager.Play();
-                }
             }));
         }
         #endregion
@@ -1014,8 +1065,6 @@ namespace Rememo
         {
             tabItem1.IsSelected = true;
         }
-
-       
 
     }
 
