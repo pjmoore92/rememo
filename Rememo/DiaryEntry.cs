@@ -17,6 +17,10 @@ public class DiaryEntry
     private bool asterisk;
     private bool circle;
     private Reminder reminder;
+    private bool abs;
+    private bool mus;
+    private bool tag;
+    private bool not;
 
     #region Constructors
     public DiaryEntry()
@@ -29,9 +33,13 @@ public class DiaryEntry
         asterisk = false;
         circle = false;
         reminder = null;
+        abs = true;
+        mus = false;
+        tag = false;
+        not = false;
     }
 
-    public DiaryEntry(DateTime date, TimeOfDay time, DateTime selected, String text, bool underline, bool asterisk, bool circle, Reminder reminder)
+    public DiaryEntry(DateTime date, TimeOfDay time, DateTime selected, String text, bool underline, bool asterisk, bool circle, Reminder reminder, bool abs, bool mus, bool not, bool tag)
     {
         Date = date;
         this.time = time;
@@ -42,6 +50,10 @@ public class DiaryEntry
         Circle = circle;
         this.reminder = reminder;
         reminder.Entry = this;
+        Abs = abs;
+        Mus = mus;
+        Not = not;
+        Tag = tag;
     }
     #endregion
 
@@ -100,6 +112,34 @@ public class DiaryEntry
     {
         get { return reminder; }
         set { reminder = value; }
+    }
+
+    [DataMember]
+    public bool Abs
+    {
+        get { return abs; }
+        set { abs = value; }
+    }
+
+    [DataMember]
+    public bool Mus
+    {
+        get { return mus; }
+        set { mus = value; }
+    }
+
+    [DataMember]
+    public bool Tag
+    {
+        get { return tag; }
+        set { tag = value; }
+    }
+
+    [DataMember]
+    public bool Not
+    {
+        get { return not; }
+        set { not = value; }
     }
     #endregion
 

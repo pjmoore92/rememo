@@ -309,6 +309,8 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
+                        
+                        
 
                         <s:SurfaceButton Background="Red" Grid.Column="0" Content="Cancel" Width="200" Height="100" FontSize="32" Name="button_cancelEntry" Click="button_cancelEntry_Click" />
 
@@ -323,6 +325,11 @@
                             </Label>
                         </s:SurfaceButton>
                     </Grid>
+                    <Label Content="Reminder Type:" HorizontalAlignment="Right" FontSize="32" Margin="0,20,528,129" VerticalContentAlignment="Center" Grid.Row="1" />
+                    <s:SurfaceCheckBox Content="Musical"  Name="c_mus" Margin="527,100,357,80" Grid.Row="1"  />
+                    <s:SurfaceCheckBox Content="Notification"  Name="c_not" Margin="378,96,498,76" Grid.Row="1"  />
+                    <s:SurfaceCheckBox Content="Abstract" Name="c_abs" Margin="237,107,646,87" Grid.Row="1" IsChecked="false" />
+                    <s:SurfaceCheckBox Content="Tag" Name="c_tag" Margin="674,111,6,92" Grid.Row="1" />
                 </Grid>
             </TabItem>
 

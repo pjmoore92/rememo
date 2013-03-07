@@ -59,5 +59,12 @@ namespace Rememo.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static byte[] Friends {
+            get {
+                object obj = ResourceManager.GetObject("Friends", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
