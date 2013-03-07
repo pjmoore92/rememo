@@ -957,7 +957,10 @@ namespace Rememo
                 return;
 
             Logger.Write("Reminder", String.Format("Received {0} reminders to deliver.", reminders.Count));
-
+            this.Dispatcher.Invoke((Action)(() =>
+                {
+                    remindersBox.Items.Add(reminders[0].ToString());
+                }));
             Reminder max = reminders[0];
 
             for (int i = 1; i < reminders.Count; i++)

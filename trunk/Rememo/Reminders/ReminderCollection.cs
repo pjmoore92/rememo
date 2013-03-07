@@ -17,13 +17,18 @@ public class ReminderCollection : ReminderObservable, IEnumerable<Reminder>
     private Thread reminderClock;
 
     [DataMember]
-    private List<Reminder> reminders;
+    protected List<Reminder> reminders;
+     
 
     public ReminderCollection()
     {
         observers = new List<ReminderObserver>();
         reminders = new List<Reminder>();
     }
+
+    public List<Reminder> retiurnReminders{
+        get { return reminders; }
+    }  
 
     public void TESTDeliverNext()
     {
