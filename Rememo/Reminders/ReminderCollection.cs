@@ -26,7 +26,7 @@ public class ReminderCollection : ReminderObservable, IEnumerable<Reminder>
         reminders = new List<Reminder>();
     }
 
-    public List<Reminder> retiurnReminders{
+    public List<Reminder> returnReminders{
         get { return reminders; }
     }  
 
@@ -162,8 +162,6 @@ public class ReminderCollection : ReminderObservable, IEnumerable<Reminder>
                     DateTime due = r.Time;
 
                     /* Check if reminder is due. */
-                    //UNCOMMENT THIS CODE TO FORCE A REMINDER
-                    //toDeliver.Add(r);
                     if (!r.Delivered && due.Ticks <= now.Ticks)
                         toDeliver.Add(r);
                 }

@@ -150,7 +150,6 @@ namespace Rememo
         /// <param name="e"></param>
         private void OnApplicationActivated(object sender, EventArgs e)
         {
-     
             InitDiary();
             InitReminders();
         }
@@ -830,6 +829,7 @@ namespace Rememo
             log.Write("New Entry is : " + newEntry.Reminder.ToString());
             log.Write("New Entry Mus is : " + newEntry.Reminder.Mus.ToString());
             reminders.AddReminder(reminder);
+            
             #endregion
 
             // Save newEntry
@@ -847,7 +847,7 @@ namespace Rememo
             diaryEntryCanvas.Clear();
             TabDiary.IsSelected = true;
 
-            //log.Write("Accepted new diary entry");
+            log.Write("Accepted new diary entry");
         }
 
         private void button_cancelEntry_Click(object sender, RoutedEventArgs e)
@@ -913,7 +913,16 @@ namespace Rememo
             DiaryManager.WriteConfig(diaryConfig);
         }
 
-        
+        public void upcomingReminders()
+        {
+            List<Reminder> upcoming = reminders.returnReminders;
+            
+            foreach (Reminder R in upcoming)
+            {
+                Console.WriteLine("This is reminder : " + reminders.ToString());
+                upcomingBox.Items.Add(R);
+            }
+        }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
@@ -959,6 +968,7 @@ namespace Rememo
             Logger.Write("Reminder", String.Format("Received {0} reminders to deliver.", reminders.Count));
             this.Dispatcher.Invoke((Action)(() =>
                 {
+                    upcomingReminders();
                     remindersBox.Items.Add(reminders[0].ToString());
                 }));
             Reminder max = reminders[0];

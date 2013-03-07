@@ -351,8 +351,11 @@
             
             <TabItem Name="Reminders" Header="Reminders">
                 <Grid>
-                    <s:SurfaceListBox Name="remindersBox" Margin="262,28,244,260" />
+                    <s:SurfaceListBox Name="remindersBox" Margin="48,179,576,354" />
                     <s:SurfaceButton Content="Back" Height="23" HorizontalAlignment="Left" Margin="772,599,0,0" Name="button3" VerticalAlignment="Top" Width="75" Click="button3_Click" />
+                    <s:SurfaceListBox Margin="582,179,42,354" Name="upcomingBox" />
+                    <Label Content="Active Reminders" Height="55" HorizontalAlignment="Left" Margin="116,107,0,0" Name="label5" VerticalAlignment="Top" FontFamily="Andalus" FontSize="32" Width="239" />
+                    <Label Content="Upcoming Reminders" Height="55" HorizontalAlignment="Right" Margin="0,107,74,0" Name="label6" VerticalAlignment="Top" Width="300" FontFamily="Andalus" FontSize="32" />
                 </Grid>
             </TabItem>
 
