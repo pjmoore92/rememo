@@ -24,16 +24,18 @@
                         </s:TagVisualizer.Definitions>
                     </s:TagVisualizer>
                    <!-- <s:SurfaceButton Content="Calendar" Height="88" HorizontalAlignment="Left" Name="calendarButton" Width="99" Margin="117,29,0,666" Background="#FFDEAF00" Click="calendarButton_Click"></s:SurfaceButton>-->
-                    <s:SurfaceButton Content="Quit" Height="88" HorizontalAlignment="Left" Margin="818,117,0,578" Name="surfaceButton1" Width="99" Background="#FFDEAF00" Click="surfaceButton1_Click" />
-                    <s:SurfaceButton Content="Settings" Height="88" HorizontalAlignment="Left" Margin="595,117,0,578" Name="surfaceButton2" Width="99" Background="#FFDEAF00" Click="surfaceButton2_Click" />
-                    <s:SurfaceButton Background="#FFDEAF00" Content="Dismiss Reminder" Height="88" HorizontalAlignment="Left" Margin="456,405,0,290" Name="surfaceButton4" Width="110" Click="surfaceButton4_Click" DataContext="{Binding}" Visibility="Hidden" Opacity="1" />
-                    <s:SurfaceButton Background="#FFDEAF00" Content="Display Calendar" Height="88" HorizontalAlignment="Left" Margin="93,117,0,578" Name="surfaceButton3" Width="110" Click="surfaceButton3_Click" DataContext="{Binding}" />
+                    <s:SurfaceButton Content="Quit" Height="88" HorizontalAlignment="Left" Margin="818,117,0,578" Name="surfaceButton1" Width="99" Background="#FFDEAF00" Click="surfaceButton1_Click" FontSize="18" />
+                    <s:SurfaceButton Content="Settings" Height="88" HorizontalAlignment="Left" Margin="595,117,0,578" Name="surfaceButton2" Width="107" Background="#FFDEAF00" Click="surfaceButton2_Click" FontSize="18" />
+                    <s:SurfaceButton Background="#FFDEAF00" Content="Dismiss Reminder" Height="88" HorizontalAlignment="Left" Margin="424,401,0,294" Name="surfaceButton4" Width="184" Click="surfaceButton4_Click" DataContext="{Binding}" Visibility="Hidden" Opacity="1" FontSize="18" />
+                    <s:SurfaceButton Background="#FFDEAF00" Content="Calendar" Height="88" HorizontalAlignment="Left" Margin="93,117,0,578" Name="surfaceButton3" Width="110" Click="surfaceButton3_Click" DataContext="{Binding}" FontSize="18" />
                     <TextBlock Name="welcome" FontWeight="Bold" FontSize="30" Margin ="0,521,6,186" TextAlignment="Center" />
                     <TextBlock Name="hours" FontWeight="Bold" FontSize="50" Text="Hours" Margin="349,592,547,115" />
                     <TextBlock Name="minutes" FontWeight="Bold" FontSize="50" Text="Minutes" Margin="454,592,442,115" />
                     <TextBlock Name="seconds" FontWeight="Bold" FontSize="50" Text="Seconds" Margin="551,592,345,115" />
-                    <Border Name="reminderBorder" BorderThickness="45" Height="783" HorizontalAlignment="Left" Margin="-7,-4,0,0" VerticalAlignment="Top" Width="1005" DataContext="{Binding}"  />
-                    <s:SurfaceButton Background="#FFDEAF00" Content="Reminders" DataContext="{Binding}" Height="88" HorizontalAlignment="Left" Margin="338,117,0,578" Name="surfaceButton" Click="surfaceButton_Click" Width="110" />
+                    <Border Name="reminderBorder" BorderThickness="45" Height="780" HorizontalAlignment="Left" Margin="-5,3,0,0" VerticalAlignment="Top" Width="1005" DataContext="{Binding}"  />
+                    <s:SurfaceButton Background="#FFDEAF00" Content="Reminders" DataContext="{Binding}" Height="88" HorizontalAlignment="Left" Margin="338,117,0,578" Name="surfaceButton" Click="surfaceButton_Click" Width="119" FontSize="18" />
+                    <TextBlock FontSize="50" FontWeight="Bold" Margin="431,592,547,115" Name="textBlock1" Text=":" />
+                    <TextBlock FontSize="50" FontWeight="Bold" Margin="528,592,450,115" Name="textBlock2" Text=":" />
                 </Grid>
             </TabItem>
             
@@ -62,19 +64,19 @@
                         <Line X1="0" Y1="30" X2="{Binding ElementName=MondayTextBlock, Path=ActualWidth}" Y2="30"  />
 
                         <!-- Morning -->
-                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
                         <Line Name="Sep1" X1="0" Y1="70" X2="{Binding ElementName=Monday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="75" FontSize="16" Foreground="Gray" />
                         <Line Name="Sep2" X1="0" Y1="110" X2="{Binding ElementName=Monday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
                         <!-- Evening -->
-                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="115" FontSize="16" Foreground="Gray" />
                         <Line Name="Sep3" X1="0" Y1="150" X2="{Binding ElementName=Monday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
 
                         <!-- 4 -->
-                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="155" FontSize="16" Foreground="Gray" />
                         <Line Name="Sep4" X1="0" Y1="190" X2="{Binding ElementName=Monday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
 
 
@@ -93,20 +95,20 @@
                         <Line X1="0" Y1="30" X2="{Binding ElementName=TuesdayTextBlock, Path=ActualWidth}" Y2="30" />
 
                         <!-- Morning -->
-                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="70" X2="{Binding ElementName=Tuesday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="75" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="110" X2="{Binding ElementName=Tuesday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="115" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="150" X2="{Binding ElementName=Tuesday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
 
                         <!-- 4 -->
-                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="155" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="190" X2="{Binding ElementName=Tuesday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
                         
                     </Canvas>
@@ -123,20 +125,20 @@
 
 
                         <!-- Morning -->
-                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="70" X2="{Binding ElementName=Wednesday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="75" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="110" X2="{Binding ElementName=Wednesday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="115" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="150" X2="{Binding ElementName=Wednesday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
 
                         <!-- 4 -->
-                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="155" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="190" X2="{Binding ElementName=Wednesday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
                     </Canvas>
 
@@ -151,20 +153,20 @@
                         <Line X1="0" Y1="30" X2="{Binding ElementName=ThursdayTextBlock, Path=ActualWidth}" Y2="30"  />
 
                         <!-- Morning -->
-                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="70" X2="{Binding ElementName=Thursday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="75" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="110" X2="{Binding ElementName=Thursday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="115" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="150" X2="{Binding ElementName=Thursday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
 
                         <!-- 4 -->
-                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="155" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="190" X2="{Binding ElementName=Thursday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
                     </Canvas>
 
@@ -179,20 +181,20 @@
                         <Line X1="0" Y1="30" X2="{Binding ElementName=FridayTextBlock, Path=ActualWidth}" Y2="30"  />
 
                         <!-- Morning -->
-                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="70" X2="{Binding ElementName=Friday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="75" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="110" X2="{Binding ElementName=Friday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="115" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="150" X2="{Binding ElementName=Friday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
 
                         <!-- 4 -->
-                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="155" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="190" X2="{Binding ElementName=Friday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
                     </Canvas>
 
@@ -206,20 +208,20 @@
                         <Line X1="0" Y1="30" X2="{Binding ElementName=SaturdayTextBlock, Path=ActualWidth}" Y2="30" />
 
                         <!-- Morning -->
-                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="70" X2="{Binding ElementName=Saturday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="75" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="110" X2="{Binding ElementName=Saturday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="115" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="150" X2="{Binding ElementName=Saturday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
 
                         <!-- 4 -->
-                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="155" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="190" X2="{Binding ElementName=Saturday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
                     </Canvas>
 
@@ -233,34 +235,34 @@
                         <Line X1="0" Y1="30" X2="{Binding ElementName=SundayTextBlock, Path=ActualWidth}" Y2="30"  />
 
                         <!-- Morning -->
-                        <TextBlock Text="1" Canvas.Top="35" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="35" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="70" X2="{Binding ElementName=Sunday, Path=ActualWidth}" Y2="70" Stroke="Gray" />
 
                         <!-- Afternoon -->
-                        <TextBlock Text="2" Canvas.Top="75" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="75" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="110" X2="{Binding ElementName=Sunday, Path=ActualWidth}" Y2="110" Stroke="Gray" />
 
 
                         <!-- Evening -->
-                        <TextBlock Text="3" Canvas.Top="115" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="115" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="150" X2="{Binding ElementName=Sunday, Path=ActualWidth}" Y2="150" Stroke="Gray" />
 
                         <!-- 4 -->
-                        <TextBlock Text="4" Canvas.Top="155" FontSize="16" Foreground="Gray" />
+                        <TextBlock Text="" Canvas.Top="155" FontSize="16" Foreground="Gray" />
                         <Line X1="0" Y1="190" X2="{Binding ElementName=Sunday, Path=ActualWidth}" Y2="190" Stroke="Gray" />
                     </Canvas>
 
                     <!-- Notes -->
                     <Canvas Grid.Column="1" Grid.Row="3" Name="Notes" Background="White">
                         <!-- Separator lines -->
-                        <Line X1="0" Y1="0" X2="{Binding ElementName=Notes, Path=ActualWidth}" Y2="0" Stroke="Black" StrokeThickness="3" />
+                        <!--<Line X1="0" Y1="0" X2="{Binding ElementName=Notes, Path=ActualWidth}" Y2="0" Stroke="Black" StrokeThickness="3" />-->
 
                         <!-- Day header -->
-                        <TextBlock Name="NotesTextBlock" FontWeight="Bold" FontSize="22" Text="Notes" Margin="150,2,0,0" />
-                        <Line X1="0" Y1="30" X2="{Binding ElementName=NotesTextBlock, Path=ActualWidth}" Y2="30"  />
+                        <TextBlock Name="NotesTextBlock" FontWeight="Bold" FontSize="22" Text="Navigation" Margin="150,2,0,0" />
+                        <!--<Line X1="0" Y1="30" X2="{Binding ElementName=NotesTextBlock, Path=ActualWidth}" Y2="30"  />-->
 
                         <Line Name="RowLine1" X1="0" Y1="60" X2="{Binding ElementName=Notes, Path=ActualWidth}" Y2="60" Stroke="Gray" />
-                        <Line Name="RowLine2" X1="0" Y1="90" X2="190" Y2="90" Stroke="Gray" />
+                        <Line Name="RowLine2" X1="0" Y1="90" X2="190" Y2="90" Stroke="Gray" Visibility="Hidden" />
                         
                         <s:SurfaceButton Canvas.Left="338" Canvas.Top="147" Content="Return to Home Screen" Height="43" Name="button1" Width="154" Click="button1_Click" />
                        
@@ -289,15 +291,15 @@
 
                         <Grid Grid.Column="1" DataContext="{Binding}">
                             <Border BorderBrush="Black" BorderThickness="1" Margin="0,0,0,150">
-                                <s:SurfaceTextBox Background="White" HorizontalAlignment="Stretch" Name="diaryEntryCanvas" Margin="0,0,0,0" Height="111" Width="823" />
+                                <s:SurfaceTextBox Background="White" HorizontalAlignment="Stretch" Name="diaryEntryCanvas" Margin="0,0,0,0" Height="111" Width="823" FontSize="26" />
                                 <!--<Canvas Background="White" HorizontalAlignment="Stretch" s:Contacts.ContactDown="diaryEntryCanvas_ContactDown"  Name="diaryEntryCanvas" Margin="0,0,0,0" />-->
                             </Border>
                             <TextBlock Height="30" HorizontalAlignment="Left" Margin="1,0,0,125" Text="Tap above to enter text" FontSize="24" VerticalAlignment="Bottom" Foreground="#FF434343" />
-                            <s:SurfaceRadioButton Content="Morning" GroupName="Options1" Name="one" Margin="60,199,638,23" />
-                            <s:SurfaceRadioButton Content="Afternoon" GroupName="Options1" Name="two" Margin="237,187,417,12" />
-                            <s:SurfaceRadioButton Content="Evening" GroupName="Options1" Name="three" Margin="390,189,290,14" />
-                            <s:SurfaceRadioButton Content="Special" GroupName="Options1" Name="four" Margin="531,189,149,14" />
-                            <s:SurfaceCheckBox Name="priorityCheck" Margin="664,143,24,60">High Priority?</s:SurfaceCheckBox>
+                            <s:SurfaceRadioButton Content="Morning" GroupName="Options1" Name="one" Margin="60,199,638,23" FontSize="16" />
+                            <s:SurfaceRadioButton Content="Afternoon" GroupName="Options1" Name="two" Margin="237,187,417,12" FontSize="16" />
+                            <s:SurfaceRadioButton Content="Evening" GroupName="Options1" Name="three" Margin="390,189,290,14" FontSize="16" />
+                            <s:SurfaceRadioButton Content="Special" GroupName="Options1" Name="four" Margin="531,189,149,14" FontSize="16" />
+                            <s:SurfaceCheckBox Name="priorityCheck" Margin="664,143,24,60" FontSize="16">High Priority?</s:SurfaceCheckBox>
                         </Grid>
                         <Label Content="Time:" HorizontalAlignment="Right" FontSize="32" Margin="0,143,0,6" VerticalContentAlignment="Center" />
                     </Grid>
@@ -326,10 +328,10 @@
                         </s:SurfaceButton>
                     </Grid>
                     <Label Content="Reminder Type:" HorizontalAlignment="Right" FontSize="32" Margin="0,20,528,129" VerticalContentAlignment="Center" Grid.Row="1" />
-                    <s:SurfaceCheckBox Content="Musical"  Name="c_mus" Margin="527,100,357,80" Grid.Row="1"  />
-                    <s:SurfaceCheckBox Content="Notification"  Name="c_not" Margin="378,96,498,76" Grid.Row="1"  />
-                    <s:SurfaceCheckBox Content="Abstract" Name="c_abs" Margin="237,107,646,87" Grid.Row="1" IsChecked="false" />
-                    <s:SurfaceCheckBox Content="Tag" Name="c_tag" Margin="674,111,6,92" Grid.Row="1" />
+                    <s:SurfaceCheckBox Content="Musical"  Name="c_mus" Margin="527,100,357,80" Grid.Row="1" FontSize="16" />
+                    <s:SurfaceCheckBox Content="Notification"  Name="c_not" Margin="378,96,498,76" Grid.Row="1" FontSize="16" />
+                    <s:SurfaceCheckBox Content="Abstract" Name="c_abs" Margin="237,107,646,87" Grid.Row="1" IsChecked="false" FontSize="16" />
+                    <s:SurfaceCheckBox Content="Tag" Name="c_tag" Margin="674,111,6,92" Grid.Row="1" FontSize="16" />
                 </Grid>
             </TabItem>
 
